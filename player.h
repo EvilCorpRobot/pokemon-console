@@ -8,6 +8,6 @@ typedef struct s_player
 }t_player;
 
 
-t_player createPlayer();
+t_player* createPlayer();
 void destroyPlayer();
-void addItemsPlayer(t_player *player, t_item item);
+int addItemsPlayer(t_player *player, t_item item);
