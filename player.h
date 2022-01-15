@@ -1,4 +1,5 @@
 #include "items.h"
+
 typedef struct s_player
 {
     t_item *items;
