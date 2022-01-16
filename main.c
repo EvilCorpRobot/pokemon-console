@@ -10,10 +10,8 @@ int main()
     t_item a3;
     t_item a4;
     player = createPlayer();
-    addItemsPlayer(player, a1);
-    addItemsPlayer(player, a2);
-    addItemsPlayer(player, a3);
-    addItemsPlayer(player, a4);
-    printf("nbr d'items : %d\n", player->nbrItems);
+    printf("Le joueur a comme pokemon : %s\n", player->pokemonTeam[0].name);
+    printf("Le joueur à pour nom d'attaque : %s\n", player->pokemonTeam[0].attacks->name);
+    printf("Le pokemon a comme attack %d", player->pokemonTeam[0].attacks->attackType.water);
     destroyPlayer(player);
 }

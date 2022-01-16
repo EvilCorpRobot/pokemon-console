@@ -1,10 +1,15 @@
 #include "items.h"
+#include "pokemon.h"
 
 typedef struct s_player
 {
     t_item *items;
     int nbrItemsAllocate;
     int nbrItems;
+
+    t_pokemon pokemonTeam[5];
+    int nbPokemon;
+    
 }t_player;
 
 

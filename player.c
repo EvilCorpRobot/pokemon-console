@@ -1,4 +1,7 @@
 #include "player.h"
+#include "attack.h"
+#include "pokemon.h"
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -9,14 +12,33 @@ t_player* createPlayer()
     player = malloc(sizeof(t_player));
     if(player == NULL)
     {
-        printf("Erreur allocation player.createPlayer().player");
+        printf("Erreur allocation player.createPlayer().player\n");
         return NULL;
     }
+    t_pokemon *pokemonStart = malloc(sizeof(t_pokemon));
+    if (pokemonStart == NULL)
+    {
+        printf("Erreur allocation player.createPlayer().player->pokemonStart\n");
+    }
+    pokemonStart->attacks = malloc(sizeof(t_attack) * 5);
+    t_attack *attack = malloc(sizeof(t_attack));
+    
+    player->pokemonTeam->attacks[0] = *attack;
+    printf("1\n");
+    player->pokemonTeam->attacks[0].attackType.water = 10;
+    strcpy(pokemonStart->attacks[0].name, "Boule de feu.");
+    strcpy(pokemonStart->name, "pikachu");
+    player->pokemonTeam[0] = *pokemonStart;
+    if (player->pokemonTeam == NULL)
+    {
+        printf("Erreur allocation player.createPlayer().player->pokemonTeam\n");
+    }
+    
     player->items = NULL;
     player->items = malloc(sizeof(t_item) * 3);
     if(player->items == NULL)
     {
-        printf("Erreur allocation player.createPlayer().player->items");
+        printf("Erreur allocation player.createPlayer().player->items\n");
         return NULL;
     }
     
@@ -29,6 +51,8 @@ t_player* createPlayer()
 void destroyPlayer(t_player *player)
 {
     free(player->items);
+    free(player->pokemonTeam->attacks);
+    free(player->pokemonTeam);
     free(player);
 }
 
